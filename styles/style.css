@@ -71,9 +71,49 @@ ol {
   gap: 30px;
 }
 
+/* стили кнопок */
+.button {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: solid 1px #fff;
+  outline-offset: 1px;
+}
+
+
+.search-form__submit-button {
+  min-width: 194px;
+  min-height: 34px;
+  align-self: end;
+}
+
+.more-button {
+  min-height: 34px;
+}
+
 /* стили, относящиеся к секции с видео */
 .result__video-container {
   display: flex;
+  position: relative;
   margin-bottom: 16px;
 }
 
@@ -87,7 +127,7 @@ ol {
 /* стили, относящиеся к форме */
 .search-form {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: start;
   gap: 40px;
 }
@@ -129,21 +169,43 @@ ol {
   font-size: 18px;
 }
 
-.search-form__textfield::placeholder {
-  color: rgb(255 255 255 / 0.7);
-}
-
 .search-form__textfield:focus {
   outline: none;
 }
 
-.search-form__textfield:focus-visible {
-  outline: none;
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
 }
 
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
+}
+
+/* стили чекбокса */
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: solid 1px #fff;
+  padding: 1px;
+} 
+
+.search-form__label:hover:not(:has(.search-form__textfield)) {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+input[type='checkbox']:checked + span::after {
+  opacity: 1;
 }
 
 /* стили, относящиеся к списку карточек */
@@ -167,6 +229,7 @@ ol {
 }
 
 .content__list-container {
+  position: relative;
   height: 298px;
   overflow: auto;
   display: flex;
@@ -180,9 +243,36 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #fff;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: solid 1px #fff;
+  outline-offset: 1px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
 }
 
 .content__video-card {
